@@ -62,7 +62,7 @@ for stranica in range(1, int(Nstranic)):
                                 else:
                                     vremya = time.strptime(date[0], '%d-%m-%Y')
                                 tempdict.update({'author' : author, 'date' : time.strftime('%d.%m.%Y', vremya), 
-                                                 'header' : re.findall('.*?\»', stranica.title.string)[0],
+                                                 'header' : re.findall('.*?\»', stranica.title.string)[0][0:-1],
                                                  'day' : time.strftime('%d', vremya),
                                                  'weekday' : time.strftime('%A', vremya),
                                                  'month' : time.strftime('%B', vremya),
@@ -95,13 +95,16 @@ for item in timedict:
     filepath = timedict[item]['year'] + '\\' + timedict[item]['month'] + '\\'
     if not os.path.exists(filepath):
         os.makedirs(filepath)
+        os.makedirs(filepath + 'xml\\')
+        os.makedirs(filepath + 'plaintext\\')
     gg = open(filepath + item + '.txt', 'w+', encoding = 'utf-8')
-    cash = '@' + timedict[item]['author'] + '\n' + '@' + timedict[item]['header'] +'\n' + '@' + timedict[item]['date'] + '\n' +'@' + timedict[item]['link'] + '\n' + timedict[item]['text']
+    cash = '@au' + timedict[item]['author'] + '\n' + '@ti' + timedict[item]['header'] +'\n' + '@da' + timedict[item]['date'] + '\n' +'@url' + timedict[item]['link'] + '\n' + timedict[item]['text']
     gg.write(cash)
     gg.close()
     cwd = os.getcwd()
-    os.system(r'C:\Users\Robert\Desktop\specialforpath\mystem.exe -dige utf-8 --format xml '+ cwd + '\\' + filepath + item + '.txt' + ' ' + cwd + '\\' + filepath + item + '.xml')
-    os.system(r'C:\Users\Robert\Desktop\specialforpath\mystem.exe -dige utf-8 --format text '+ cwd + '\\' + filepath + item + '.txt' + ' ' + cwd + '\\' + filepath + item + '_plaintext.txt')
+    
+    os.system(r'C:\Users\Robert\Desktop\specialforpath\mystem.exe -dige utf-8 --format xml '+ cwd + '\\' + filepath + item + '.txt' + ' ' + cwd + '\\' + filepath + 'xml\\' + item + '.xml')
+    os.system(r'C:\Users\Robert\Desktop\specialforpath\mystem.exe -dige utf-8 --format text '+ cwd + '\\' + filepath + item + '.txt' + ' ' + cwd + '\\' + filepath + 'plaintext\\' + item + '_plaintext.txt')
         
 def makecsv():
       
