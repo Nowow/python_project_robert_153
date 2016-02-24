@@ -98,7 +98,7 @@ for item in timedict:
         os.makedirs(filepath + 'xml\\')
         os.makedirs(filepath + 'plaintext\\')
     gg = open(filepath + item + '.txt', 'w+', encoding = 'utf-8')
-    cash = '@au' + timedict[item]['author'] + '\n' + '@ti' + timedict[item]['header'] +'\n' + '@da' + timedict[item]['date'] + '\n' +'@url' + timedict[item]['link'] + '\n' + timedict[item]['text']
+    cash = '@au ' + timedict[item]['author'] + '\n' + '@ti ' + timedict[item]['header'] +'\n' + '@da ' + timedict[item]['date'] + '\n' +'@url ' + timedict[item]['link'] + '\n' + timedict[item]['text']
     gg.write(cash)
     gg.close()
     cwd = os.getcwd()
