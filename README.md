@@ -1,2 +1,2 @@
-# python_project_robert_153
-bolwaja domawja, Zakoyan Robert 153 
+# Домашка по питону
+скоро будет линк на хранилище
