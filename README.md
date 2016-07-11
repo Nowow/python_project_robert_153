@@ -1,4 +1,4 @@
-# Домашка по питону
+# газетный корпус
 
 линк - https://drive.google.com/file/d/0B9Gg5Lt60JY0bWNzUENRTGF0S1k/view?usp=sharing 
 
